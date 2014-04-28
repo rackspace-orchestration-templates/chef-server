@@ -66,6 +66,16 @@ parameters:
       description: |
         Must begin with a letter and contain only alphanumeric characters.
 
+  kitchen:
+    description: URL for the kitchen to use
+    type: string
+    default: https://github.com/rackspace-orchestration-templates/chef-server
+
+  chef_version:
+    description: Version of chef client to use
+    type: string
+    default: 11.12.2
+
 resources:
 
   ssh_key:
@@ -89,14 +99,8 @@ resources:
       username: root
       private_key: { get_attr: [ssh_key, private_key] }
       host: { get_attr: [chef_server, accessIPv4] }
-      Berksfile: |
-        site :opscode
-
-        cookbook 'apt'
-        cookbook 'chef-server'
-        cookbook 'firewall'
-        cookbook 'rax-firewall',
-          :git => 'https://github.com/brint/rax-firewall-cookbook'
+      kitchen: { get_param: kitchen }
+      chef_version: { get_param: chef_version }
       node:
         chef-server:
           configuration:
