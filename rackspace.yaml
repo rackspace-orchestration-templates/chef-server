@@ -4,6 +4,13 @@ application-name: Chef Server
 application-version: latest
 flavor: Single Linux server running Open Source Chef Server
 flavor-weight: 1
+abstract: |
+  Single Linux server with the [Open Source Chef
+  Server](http://docs.opscode.com/chef/manage_server_open_source.html). All
+  supporting services such as [PostgreSQL](http://www.postgresql.org/),
+  [Nginx](http://wiki.nginx.org/Main), and
+  [RabbitMQ](http://www.rabbitmq.com/) are bundled in with this
+  installation.
 reach-info:
   tattoo: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/chef-tattoo.png
   icon-20x20: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/chef-icon-20x20.png
