@@ -4,13 +4,37 @@ application-name: Chef Server
 application-version: latest
 flavor: Single Linux server running Open Source Chef Server
 flavor-weight: 1
+reach-info:
+  tattoo: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/chef-tattoo.png
+  icon-20x20: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/chef-icon-20x20.png
 abstract: |
   Single Linux server with the [Open Source Chef
   Server](http://docs.opscode.com/chef/manage_server_open_source.html). All
   supporting services such as [PostgreSQL](http://www.postgresql.org/),
-  [Nginx](http://wiki.nginx.org/Main), and
-  [RabbitMQ](http://www.rabbitmq.com/) are bundled in with this
-  installation.
-reach-info:
-  tattoo: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/chef-tattoo.png
-  icon-20x20: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/chef-icon-20x20.png
+  [Nginx](http://wiki.nginx.org/Main), and [RabbitMQ](http://www.rabbitmq.com/)
+  are bundled in with this installation.
+instructions: |
+  #### Getting Started
+  Once the deployment is up, you can navigate to the of the server. If your DNS
+  is not pointing to this installation, you can either access the deployment
+  via IP, or add a line in your [hosts
+  file](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file)
+  to point your domain to the IP of this Cloud Server.
+
+  The default password for your installation will show up on the right side of
+  the login page. You'll be asked to reset the admin user password immediately
+  after logging in.
+
+  #### Managing Chef Server
+  Check out the [Manage the Open Source Chef
+  Server](http://docs.opscode.com/chef/manage_server_open_source.html)
+  documentation provided by OpsCode for more information about managing users,
+  keys, and clients. There is a table of contents available on the right of
+  this page to help you skip to the sections that are most valuable to you.
+
+  #### Logging In via SSH
+  The private key provided in the passwords section can be used to login as
+  root via SSH.  We have an article on how to use these keys with [Mac OS X and
+  Linux](http://www.rackspace.com/knowledge_center/article/logging-in-with-a-ssh-private-key-on-linuxmac)
+  as well as [Windows using
+  PuTTY](http://www.rackspace.com/knowledge_center/article/logging-in-with-a-ssh-private-key-on-windows).
