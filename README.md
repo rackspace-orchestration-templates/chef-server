@@ -29,7 +29,7 @@ Here is an example of how to deploy this template using the
 heat --os-username <OS-USERNAME> --os-password <OS-PASSWORD> --os-tenant-id \
   <TENANT-ID> --os-auth-url https://identity.api.rackspacecloud.com/v2.0/ \
   stack-create Chef-Server-Stack -f chef-server.yaml \
-  -P chef_username=bob -P ssh_keypair_name=chef-example
+  -P chef_username=bob
 ```
 
 * For UK customers, use `https://lon.identity.api.rackspacecloud.com/v2.0/` as
@@ -54,8 +54,6 @@ the `-P` flag to specify a custom parameter.
 * `image`: Operating system to install (Default: Ubuntu 12.04 LTS (Precise
   Pangolin))
 * `flavor`: Cloud server size to use. (Default: 2 GB Performance)
-* `ssh_keypair_name`: Name of the SSH key pair to register with nova (Default:
-  none)
 * `chef_username`: Admin user name to use with Chef (Default: admin)
 
 Outputs

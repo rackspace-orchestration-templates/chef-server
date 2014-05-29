@@ -4,6 +4,27 @@ description: |
   This is a Heat template to deploy a single Linux server running the Open
   Source version of Chef Server.
 
+parameter_groups:
+
+- label: Server Settings
+  parameters:
+  - server_hostname
+  - flavor
+  - image
+
+- label: Chef Settings
+  parameters:
+  - chef_username
+
+- label: rax-dev-params
+  # These are parameters that will not be displayed in the portal. The purpose
+  # of these parameters are for users who are developing or testing newer or
+  # different setups. If any of these parameters are changed, there is a good
+  # chance this stack will fail to properly deploy.
+  parameters:
+  - kitchen
+  - chef_version
+
 parameters:
 
   server_hostname:
@@ -50,13 +71,6 @@ parameters:
         Must be a valid Rackspace Cloud Server flavor for the region you have
         selected to deploy into.
 
-  ssh_keypair_name:
-    description: Nova keypair name for ssh access to the server
-    type: string
-    constraints:
-    - allowed_pattern: "^(.){1,64}$"
-      description: "Must be shorter than 64 characters or fewer."
-
   chef_username:
     description: Username to use when logging into chef
     type: string
@@ -81,7 +95,7 @@ resources:
   ssh_key:
     type: "OS::Nova::KeyPair"
     properties:
-      name: { get_param: ssh_keypair_name }
+      name: { get_param: "OS::stack_id" }
       save_private_key: true
 
   chef_server:
