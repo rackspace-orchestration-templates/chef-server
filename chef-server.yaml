@@ -8,7 +8,6 @@ parameter_groups:
 
 - label: Server Settings
   parameters:
-  - server_hostname
   - flavor
   - image
 
@@ -22,13 +21,15 @@ parameter_groups:
   # different setups. If any of these parameters are changed, there is a good
   # chance this stack will fail to properly deploy.
   parameters:
+  - server_hostname
   - kitchen
   - chef_version
 
 parameters:
 
   server_hostname:
-    description: Server Name
+    label: Server Hostname
+    description: Host name to give the Chef Server
     type: string
     default: Chef-Server
     constraints:
@@ -40,7 +41,8 @@ parameters:
         Must begin with a letter and contain only alphanumeric characters.
 
   image:
-    description: Server Image
+    label: Server Image
+    description: Operating system to use for your server.
     type: string
     default: Ubuntu 12.04 LTS (Precise Pangolin)
     constraints:
@@ -49,7 +51,10 @@ parameters:
       description: Must be a supported operating system.
 
   flavor:
-    description: Rackspace Cloud Server flavor
+    label: Server Size
+    description: |
+      Rackspace Cloud Server flavor to use. The size is based on the amount of
+      RAM for the provisioned server.
     type: string
     default: 2 GB Performance
     constraints:
@@ -72,7 +77,8 @@ parameters:
         selected to deploy into.
 
   chef_username:
-    description: Username to use when logging into chef
+    label: Chef User
+    description: Username to use when logging into Chef
     type: string
     default: admin
     constraints:
@@ -81,17 +87,18 @@ parameters:
         Must begin with a letter and contain only alphanumeric characters.
 
   kitchen:
+    label: Kitchen
     description: URL for the kitchen to use
     type: string
     default: https://github.com/rackspace-orchestration-templates/chef-server
 
   chef_version:
+    label: Chef Version
     description: Version of chef client to use
     type: string
-    default: 11.12.2
+    default: 11.12.8
 
 resources:
-
   ssh_key:
     type: "OS::Nova::KeyPair"
     properties:
@@ -105,6 +112,8 @@ resources:
       flavor: { get_param: flavor }
       image: { get_param: image }
       key_name: { get_resource: ssh_key }
+      metadata:
+        rax-heat: { get_param: "OS::stack_id" }
 
   chef_server_setup:
     type: "OS::Heat::ChefSolo"
@@ -129,14 +138,21 @@ resources:
 
 outputs:
   private_key:
+    description: SSH Private Key
     value: { get_attr: [ssh_key, private_key] }
 
   server_ip:
+    description: Server IP
     value: { get_attr: [chef_server, accessIPv4] }
 
   chef_url:
+    description: Chef URL
     value:
       str_replace:
         template: "https://%server_ip%"
         params:
           "%server_ip%": { get_attr: [chef_server, accessIPv4] }
+
+  chef_username:
+    description: Chef Username
+    value: { get_param: chef_username }
