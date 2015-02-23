@@ -11,7 +11,7 @@ hidden_outputs:
   - private_key
 abstract: |
   Single Linux server with the [Open Source Chef
-  Server](http://docs.opscode.com/chef/manage_server_open_source.html). All
+  Server](http://docs.chef.io/open_source/). All
   supporting services such as [PostgreSQL](http://www.postgresql.org/),
   [Nginx](http://wiki.nginx.org/Main), and [RabbitMQ](http://www.rabbitmq.com/)
   are bundled in with this installation.
@@ -29,7 +29,7 @@ instructions: |
 
   #### Managing Chef Server
   Check out the [Manage the Open Source Chef
-  Server](http://docs.opscode.com/chef/manage_server_open_source.html)
+  Server](http://docs.chef.io/server/index.html#manage-the-chef-server)
   documentation provided by OpsCode for more information about managing users,
   keys, and clients. There is a table of contents available on the right of
   this page to help you skip to the sections that are most valuable to you.
