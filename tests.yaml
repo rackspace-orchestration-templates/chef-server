@@ -27,7 +27,6 @@ test-cases:
   create:
     parameters:
       flavor: 2GB Standard Instance
-      chef_username: racker
     timeout: 30
   resource_tests:
     ssh_private_key: { get_output: private_key }
