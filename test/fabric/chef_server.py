@@ -8,13 +8,13 @@ from hot.utils.test import get_artifacts
 def check():
     env.platform_family = detect.detect()
 
-    assert package.installed("chef-server")
-    assert file.exists("/etc/chef-server/chef-server.rb")
+    assert package.installed("chef-server-core")
+    assert file.exists("/etc/opscode/chef-server.rb")
     assert port.is_listening(80)
     assert port.is_listening(443)
-    assert user.exists("chef_server")
-    assert group.is_exists("chef_server")
-    assert user.is_belonging_group("chef_server", "chef_server")
+    assert user.exists("opscode")
+    assert group.is_exists("opscode")
+    assert user.is_belonging_group("opscode", "opscode")
     assert process.is_up("nginx")
     assert process.is_up("postgres")
     assert service.is_enabled("nginx")
