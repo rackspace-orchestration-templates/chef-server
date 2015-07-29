@@ -31,3 +31,9 @@ instructions: |
   Linux](http://www.rackspace.com/knowledge_center/article/logging-in-with-a-ssh-private-key-on-linuxmac)
   as well as [Windows using
   PuTTY](http://www.rackspace.com/knowledge_center/article/logging-in-with-a-ssh-private-key-on-windows).
+description: |
+  Single Linux server with the
+  [Open Source Chef Server](http://docs.chef.io/open_source/). All supporting
+  services such as [PostgreSQL](http://www.postgresql.org/),
+  [Nginx](http://wiki.nginx.org/Main) and
+  [RabbitMQ](http://www.rabbitmq.com/) are bundled in with this installation.
