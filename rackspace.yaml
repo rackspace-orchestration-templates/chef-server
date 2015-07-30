@@ -10,11 +10,8 @@ reach-info:
 hidden_outputs:
   - private_key
 abstract: |
-  Single Linux server with the [Chef Server
-  12](http://docs.chef.io/open_source/). All
-  supporting services such as [PostgreSQL](http://www.postgresql.org/),
-  [Nginx](http://wiki.nginx.org/Main), and [RabbitMQ](http://www.rabbitmq.com/)
-  are bundled in with this installation.
+  Chef Server is the centralised hub that each Chef client will connect to in
+  order to retrieve configuration details.
 instructions: |
   #### Managing Chef Server
   Check out the [Manage the Chef
