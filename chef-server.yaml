@@ -1,8 +1,11 @@
 heat_template_version: 2013-05-23
 
 description: |
-  This is a Heat template to deploy a single Linux server running the Open
-  Source version of Chef Server.
+  Single Linux server with the
+  [Open Source Chef Server](http://docs.chef.io/open_source/). All supporting
+  services such as [PostgreSQL](http://www.postgresql.org/),
+  [Nginx](http://wiki.nginx.org/Main) and
+  [RabbitMQ](http://www.rabbitmq.com/) are bundled in with this installation.
 
 parameter_groups:
 
