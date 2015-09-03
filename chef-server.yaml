@@ -2,7 +2,7 @@ heat_template_version: 2013-05-23
 
 description: |
   Single Linux server with the
-  [Open Source Chef Server](http://docs.chef.io/open_source/). All supporting
+  [Chef Server](http://docs.chef.io/chef_server.html). All supporting
   services such as [PostgreSQL](http://www.postgresql.org/),
   [Nginx](http://wiki.nginx.org/Main) and
   [RabbitMQ](http://www.rabbitmq.com/) are bundled in with this installation.
@@ -115,10 +115,10 @@ resources:
                 content: |
                   #!/bin/bash -v
                   cd /tmp
-                  # Fetch Chef 12 installer
-                  wget https://web-dl.packagecloud.io/chef/stable/packages/ubuntu/trusty/chef-server-core_12.1.0-1_amd64.deb
+                  # Fetch Chef 12.2 installer
+                  wget https://web-dl.packagecloud.io/chef/stable/packages/ubuntu/trusty/chef-server-core_12.2.0-1_amd64.deb
                   # Install Packages
-                  dpkg -i chef-server-core_12.1.0-1_amd64.deb
+                  dpkg -i chef-server-core_12.2.0-1_amd64.deb
                   # Initialize and Start Chef Server
                   chef-server-ctl reconfigure
                   # Add Chef Manage
