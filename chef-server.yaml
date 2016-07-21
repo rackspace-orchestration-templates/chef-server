@@ -116,7 +116,7 @@ resources:
                   #!/bin/bash -v
                   cd /tmp
                   # Fetch Chef 12.2 installer
-                  wget https://web-dl.packagecloud.io/chef/stable/packages/ubuntu/trusty/chef-server-core_12.2.0-1_amd64.deb
+                  wget https://packages.chef.io/stable/ubuntu/12.04/chef-server-core_12.2.0-1_amd64.deb
                   # Install Packages
                   dpkg -i chef-server-core_12.2.0-1_amd64.deb
                   # Initialize and Start Chef Server
